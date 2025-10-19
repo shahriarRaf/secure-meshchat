@@ -1,0 +1,103 @@
+version 3
+run General-0-20251019-03:20:39-24328
+attr configname General
+attr datetime 20251019-03:20:39
+attr datetimef 20251019-032039
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network secure_meshchat.simulations.MeshChatNetwork
+attr processid 24328
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config network secure_meshchat.simulations.MeshChatNetwork
+config sim-time-limit 100s
+config ned-path .;../src
+config **.numNodes 6
+config **.messageSendInterval 5s
+config **.nodeFailureTime 3s
+config **.failedNodeIndex 4
+config **.initialTTL 3
+config **.node[*].displayString "\"i=device/laptop;is=vs\""
+config **.node[0].displayString "\"i=device/laptop;is=vs;t=Sender\""
+config **.node[5].displayString "\"i=device/laptop;is=vs;t=Receiver\""
+config **.node[3].displayString "\"i=device/laptop;is=vs;t=Broadcast Node\""
+config **.connections[*].displayString "\"ls=blue,2\""
+config *.numNodes 6
+config **.messageSendInterval 5s
+config **.nodeFailureTime 3s
+config **.failedNodeIndex 4
+config **.node[0].app.sendMessageAt 10s
+config **.node[0].app.destinationNode 3
+config **.node[0].app.messageText "\"Hello from Node 0!\""
+config **.node[2].app.sendMessageAt 20s
+config **.node[2].app.destinationNode -1
+config **.node[2].app.messageText "\"Broadcast from Node 2!\""
+config **.node[4].app.sendMessageAt 30s
+config **.node[4].app.destinationNode 1
+config **.node[4].app.messageText "\"Greetings from Node 4!\""
+config **.node[*].numGates 3
+
+par MeshChatNetwork.node[0] typename "\"secure_meshchat.src.MeshNode\""
+par MeshChatNetwork.node[0] messageSendInterval 5s
+attr unit s
+par MeshChatNetwork.node[0] initialTTL 3
+scalar MeshChatNetwork.node[0] messagesReceived 16
+scalar MeshChatNetwork.node[0] successfulDecryptions 6
+scalar MeshChatNetwork.node[0] emergencyAlerts 5
+scalar MeshChatNetwork.node[0] avgLatency 0
+scalar MeshChatNetwork.node[0] deliveryRatio 0.375
+par MeshChatNetwork.node[1] typename "\"secure_meshchat.src.MeshNode\""
+par MeshChatNetwork.node[1] messageSendInterval 5s
+attr unit s
+par MeshChatNetwork.node[1] initialTTL 3
+scalar MeshChatNetwork.node[1] messagesReceived 18
+scalar MeshChatNetwork.node[1] successfulDecryptions 8
+scalar MeshChatNetwork.node[1] emergencyAlerts 5
+scalar MeshChatNetwork.node[1] avgLatency 0
+scalar MeshChatNetwork.node[1] deliveryRatio 0.44444444444444
+par MeshChatNetwork.node[2] typename "\"secure_meshchat.src.MeshNode\""
+par MeshChatNetwork.node[2] messageSendInterval 5s
+attr unit s
+par MeshChatNetwork.node[2] initialTTL 3
+scalar MeshChatNetwork.node[2] messagesReceived 10
+scalar MeshChatNetwork.node[2] successfulDecryptions 0
+scalar MeshChatNetwork.node[2] emergencyAlerts 5
+scalar MeshChatNetwork.node[2] avgLatency 0
+scalar MeshChatNetwork.node[2] deliveryRatio 0
+par MeshChatNetwork.node[3] typename "\"secure_meshchat.src.MeshNode\""
+par MeshChatNetwork.node[3] messageSendInterval 5s
+attr unit s
+par MeshChatNetwork.node[3] initialTTL 3
+scalar MeshChatNetwork.node[3] messagesReceived 12
+scalar MeshChatNetwork.node[3] successfulDecryptions 2
+scalar MeshChatNetwork.node[3] emergencyAlerts 5
+scalar MeshChatNetwork.node[3] avgLatency 0
+scalar MeshChatNetwork.node[3] deliveryRatio 0.16666666666667
+par MeshChatNetwork.node[4] typename "\"secure_meshchat.src.MeshNode\""
+par MeshChatNetwork.node[4] messageSendInterval 5s
+attr unit s
+par MeshChatNetwork.node[4] initialTTL 3
+scalar MeshChatNetwork.node[4] messagesReceived 10
+scalar MeshChatNetwork.node[4] successfulDecryptions 0
+scalar MeshChatNetwork.node[4] emergencyAlerts 5
+scalar MeshChatNetwork.node[4] avgLatency 0
+scalar MeshChatNetwork.node[4] deliveryRatio 0
+par MeshChatNetwork.node[5] typename "\"secure_meshchat.src.MeshNode\""
+par MeshChatNetwork.node[5] messageSendInterval 5s
+attr unit s
+par MeshChatNetwork.node[5] initialTTL 3
+scalar MeshChatNetwork.node[5] messagesReceived 10
+scalar MeshChatNetwork.node[5] successfulDecryptions 0
+scalar MeshChatNetwork.node[5] emergencyAlerts 5
+scalar MeshChatNetwork.node[5] avgLatency 0
+scalar MeshChatNetwork.node[5] deliveryRatio 0
+par MeshChatNetwork typename "\"secure_meshchat.simulations.MeshChatNetwork\""
+par MeshChatNetwork numNodes 6
+

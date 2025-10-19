@@ -1,0 +1,139 @@
+version 3
+run Broadcast-0-20251018-02:13:56-24436
+attr configname Broadcast
+attr datetime 20251018-02:13:56
+attr datetimef 20251018-021356
+attr experiment Broadcast
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network MeshChatNetwork
+attr processid 24436
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config extends General
+config description "Node 0 broadcasts to all nodes"
+config network MeshChatNetwork
+config sim-time-limit 100s
+config *.numNodes 6
+config **.node[0].app.sendMessageAt 10s
+config **.node[0].app.destinationNode 3
+config **.node[0].app.messageText "\"Hello from Node 0!\""
+config **.node[2].app.sendMessageAt 20s
+config **.node[2].app.destinationNode -1
+config **.node[2].app.messageText "\"Broadcast from Node 2!\""
+config **.node[4].app.sendMessageAt 30s
+config **.node[4].app.destinationNode 1
+config **.node[4].app.messageText "\"Greetings from Node 4!\""
+config **.node[*].numGates 3
+
+par MeshChatNetwork.node[0].gate$o[0].channel typename "\"ned.DelayChannel\""
+par MeshChatNetwork.node[0].gate$o[0].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[0].gate$o[0].channel delay 0.001s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[1].gate$o[0].channel typename "\"ned.DelayChannel\""
+par MeshChatNetwork.node[1].gate$o[0].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[1].gate$o[0].channel delay 0.001s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[0].gate$o[1].channel typename "\"ned.DelayChannel\""
+par MeshChatNetwork.node[0].gate$o[1].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[0].gate$o[1].channel delay 0.001s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[2].gate$o[0].channel typename "\"ned.DelayChannel\""
+par MeshChatNetwork.node[2].gate$o[0].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[2].gate$o[0].channel delay 0.001s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[1].gate$o[1].channel typename "\"ned.DelayChannel\""
+par MeshChatNetwork.node[1].gate$o[1].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[1].gate$o[1].channel delay 0.001s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[3].gate$o[0].channel typename "\"ned.DelayChannel\""
+par MeshChatNetwork.node[3].gate$o[0].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[3].gate$o[0].channel delay 0.001s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[2].gate$o[1].channel typename "\"ned.DelayChannel\""
+par MeshChatNetwork.node[2].gate$o[1].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[2].gate$o[1].channel delay 0.001s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[3].gate$o[1].channel typename "\"ned.DelayChannel\""
+par MeshChatNetwork.node[3].gate$o[1].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[3].gate$o[1].channel delay 0.001s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[2].gate$o[2].channel typename "\"ned.DelayChannel\""
+par MeshChatNetwork.node[2].gate$o[2].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[2].gate$o[2].channel delay 0.001s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[4].gate$o[0].channel typename "\"ned.DelayChannel\""
+par MeshChatNetwork.node[4].gate$o[0].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[4].gate$o[0].channel delay 0.001s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[3].gate$o[2].channel typename "\"ned.DelayChannel\""
+par MeshChatNetwork.node[3].gate$o[2].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[3].gate$o[2].channel delay 0.001s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[5].gate$o[0].channel typename "\"ned.DelayChannel\""
+par MeshChatNetwork.node[5].gate$o[0].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[5].gate$o[0].channel delay 0.001s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[4].gate$o[1].channel typename "\"ned.DelayChannel\""
+par MeshChatNetwork.node[4].gate$o[1].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[4].gate$o[1].channel delay 0.001s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[5].gate$o[1].channel typename "\"ned.DelayChannel\""
+par MeshChatNetwork.node[5].gate$o[1].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[5].gate$o[1].channel delay 0.001s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[1].gate$o[2].channel typename "\"ned.DelayChannel\""
+par MeshChatNetwork.node[1].gate$o[2].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[1].gate$o[2].channel delay 0.001s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[4].gate$o[2].channel typename "\"ned.DelayChannel\""
+par MeshChatNetwork.node[4].gate$o[2].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[4].gate$o[2].channel delay 0.001s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[0] typename "\"secure_meshchat.src.MeshNode\""
+par MeshChatNetwork.node[1] typename "\"secure_meshchat.src.MeshNode\""
+par MeshChatNetwork.node[2] typename "\"secure_meshchat.src.MeshNode\""
+par MeshChatNetwork.node[3] typename "\"secure_meshchat.src.MeshNode\""
+par MeshChatNetwork.node[4] typename "\"secure_meshchat.src.MeshNode\""
+par MeshChatNetwork.node[5] typename "\"secure_meshchat.src.MeshNode\""
+par MeshChatNetwork typename "\"secure_meshchat.simulations.MeshChatNetwork\""
+par MeshChatNetwork numNodes 6
+

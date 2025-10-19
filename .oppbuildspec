@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<buildspec version="4.0">
+    <!-- FIX: build only from project root; do NOT generate a Makefile in src -->
+    <dir makemake-options="-f --deep -o secure-meshchat -O out -I. -KLIBS=-lssl -lcrypto" path="." type="makemake"/>
+</buildspec>
