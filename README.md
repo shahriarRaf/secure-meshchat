@@ -1,49 +1,64 @@
-# Secure MeshChat: Encrypted Ad Hoc Chat & Emergency Alerts for Disaster Scenarios
+# 🔐 Secure MeshChat
 
-## Overview
-Secure MeshChat is a decentralized communication application designed for disaster scenarios where traditional internet connectivity may be unavailable. This project implements an ad hoc mesh network that allows users to send encrypted messages and emergency alerts, ensuring secure and reliable communication in critical situations.
+**Encrypted Ad Hoc Chat & Emergency Alerts for Disaster Scenarios**
 
-## Features
-- **Ad Hoc Mesh Networking**: Nodes can connect and communicate without a central server, making it ideal for emergency situations.
-- **End-to-End Encryption**: All messages are encrypted to protect user privacy and data integrity.
-- **Emergency Alerts**: Users can send urgent alerts to all connected nodes, ensuring timely dissemination of critical information.
+## 📋 Features
 
-## Project Structure
+- ✅ Peer-to-Peer Mesh Chat (multi-hop routing)
+- ✅ Emergency Alert Broadcast (priority handling)
+- ✅ Node Failure Resilience
+- ✅ End-to-End Encryption (ECDH + AES-256-GCM)
+- ✅ TTL-based Flooding Control
+- ✅ Performance Metrics (latency, delivery ratio)
+
+## 🔒 Cryptography
+
+- **Key Exchange:** ECDH (secp256r1)
+- **Encryption:** AES-256-GCM (authenticated encryption)
+- **Integrity:** Built-in with GCM mode
+
+## 🚀 How to Run
+
+### Prerequisites
+- OMNeT++ 6.2.0
+- OpenSSL 3.x
+
+### Build & Run
+```bash
+cd secure-meshchat
+opp_makemake -f --deep
+make
+omnetpp
 ```
-secure-meshchat
-├── src
-│   ├── MeshChatApp.cc
-│   ├── MeshChatApp.h
-│   ├── MeshNode.cc
-│   ├── MeshNode.h
-│   ├── EncryptionModule.cc
-│   ├── EncryptionModule.h
-│   ├── EmergencyAlert.cc
-│   └── EmergencyAlert.h
-├── simulations
-│   ├── omnetpp.ini
-│   └── network.ned
-├── networks
-│   ├── MeshNetwork.ned
-│   └── DisasterScenario.ned
-├── results
-├── Makefile
+
+Then open `omnetpp.ini` and run the simulation.
+
+## 📊 Results
+
+- **Messages Delivered:** 16 successful decryptions
+- **Emergency Alerts:** 30 received across network
+- **Node Failures:** Tested with Node 4 failure at t=3s
+- **Performance:** 312 events in 100s simulation
+
+## 📁 Project Structure
+
+```
+secure-meshchat/
+├── src/
+│   ├── MeshNode.cc          # Main node implementation
+│   ├── MeshNode.h           # Node header
+│   ├── Crypto.cc            # Encryption/decryption
+│   ├── Crypto.h             # Crypto header
+│   └── ChatMessage.msg      # Message definition
+├── simulations/
+│   └── omnetpp.ini          # Simulation config
 └── README.md
 ```
 
-## Setup Instructions
-1. **Clone the Repository**: Download the project files to your local machine.
-2. **Install OMNeT++**: Ensure you have OMNeT++ installed on your system. Follow the installation instructions on the [OMNeT++ website](https://omnetpp.org).
-3. **Build the Project**: Navigate to the project directory and run `make` to compile the source files.
-4. **Run Simulations**: Use the provided `omnetpp.ini` configuration file to run simulations in OMNeT++.
+## 🎓 Academic Project
 
-## Usage Guidelines
-- To start a chat session, initialize the `MeshChatApp` on each node.
-- Use the `sendMessage` method to communicate with other nodes.
-- In case of an emergency, utilize the `EmergencyAlert` class to broadcast alerts to all connected nodes.
 
-## Contribution
-Contributions to enhance the functionality and performance of Secure MeshChat are welcome. Please submit a pull request or open an issue for discussion.
 
-## License
-This project is licensed under the MIT License. See the LICENSE file for more details.
+## 📄 License
+
+MIT License (or your chosen license)
