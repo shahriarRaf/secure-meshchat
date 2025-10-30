@@ -6,12 +6,14 @@
 #include <set>
 #include <vector>
 #include <string>
+#include <queue>
 #include "ChatMessage_m.h"
 #include "Crypto.h"
 
 using namespace omnetpp;
 
-class MeshNode : public cSimpleModule {
+class MeshNode : public cSimpleModule
+{
   private:
     Crypto* crypto;
     bool hasFailed;
@@ -28,11 +30,37 @@ class MeshNode : public cSimpleModule {
     int emergencyAlertsReceived;
     std::vector<double> latencies;
 
-    int messagesSent = 0;  // ✅ ADD THIS
-    int maxMessages = 5;   // ✅ ADD THIS
-
-    // timer used to trigger periodic sending
+    long messagesSent = 0;
     cMessage* sendMessageTimer = nullptr;
+    int maxMessages = 5;
+
+    cOutVector vecMessagesSent;
+    cOutVector vecMessagesDelivered;
+    cOutVector vecMessagesDropped;
+    cOutVector vecDeliveryRatio;
+    cMessage *vizTimer = nullptr;
+    cMessage* mobilityTimer;
+    cMessage* linkFailureTimer;
+
+    long messagesDelivered = 0;
+    long messagesDropped = 0;
+
+    double packetLossRate;
+    int totalBytesSent;
+    int totalBytesReceived;
+    
+    std::map<int, std::queue<ChatMessage*>> transmissionQueues;
+    std::map<int, cMessage*> transmissionEndEvents;
+
+    bool enableMobility;
+    double posX, posY;
+    double velocityX, velocityY;
+    
+    cMessage* testMessageTimer = nullptr;
+    cMessage* broadcastTimer = nullptr;
+    cMessage* emergencyTimer = nullptr;
+    
+    std::map<int, bool> linkStatus;
 
   protected:
     virtual void initialize(int stage) override;
@@ -43,7 +71,6 @@ class MeshNode : public cSimpleModule {
     virtual void sendPublicKeyToNeighbors();
     virtual void handleKeyExchange(ChatMessage *msg);
     virtual void deriveSymmetricKeyForPeer(int peerId);
-    virtual void broadcastPublicKey();
 
     virtual void handleDataMessage(ChatMessage* msg);
     virtual void sendMessage(int destNodeId, const std::string& text);
@@ -51,13 +78,29 @@ class MeshNode : public cSimpleModule {
     virtual void sendEmergencyAlert(const std::string& text);
     virtual void forwardMessage(ChatMessage* msg);
     virtual void simulateFailure();
-    void sendTestMessage();
+    virtual void sendTestMessage();
 
     std::string encryptMessage(const std::string& plaintext, int destinationId,
                                std::string& outIV, std::string& outTag);
     bool decryptMessage(const std::string& ivHex, const std::string& tagHex,
                         const std::string& ctHex, int sourceId, std::string& plaintext);
 
+    void vizSendMsg(cMessage *msg, bool encrypted);
+    void vizReceiveMsg(cMessage *msg, bool success, bool encrypted);
+    void vizMarkFailed();
+    
+    void sendPacketOnGate(ChatMessage* msg, int gateIndex);
+    void handleTransmissionEnd(cMessage* event);
+    void processQueue(int gateIndex);
+
+    void updatePosition();
+    void checkLinkQuality();
+    void simulateLinkFailure();
+    void restoreLink(int gateIndex);
+
+    static std::string toHex(const std::vector<unsigned char> &data);
+    static std::vector<unsigned char> fromHex(const std::string &hex);
+    
   public:
     MeshNode();
     virtual ~MeshNode();

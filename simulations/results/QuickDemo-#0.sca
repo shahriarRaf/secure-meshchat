@@ -1,21 +1,36 @@
 version 3
-run General-0-20251030-09:24:51-1496
-attr configname General
-attr datetime 20251030-09:24:51
-attr datetimef 20251030-092451
-attr experiment General
+run QuickDemo-0-20251030-09:01:51-4920
+attr configname QuickDemo
+attr datetime 20251030-09:01:51
+attr datetimef 20251030-090151
+attr experiment QuickDemo
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network MeshChatNetwork
-attr processid 1496
+attr processid 4920
 attr repetition 0
 attr replication #0
 attr resultdir results
 attr runnumber 0
 attr seedset 0
+config description "FAST 60-second demo for presentation"
+config sim-time-limit 60s
+config *.numNodes 12
+config *.mobility true
+config *.enableLinkFailures true
+config *.node[*].messageSendInterval exponential(2s)
+config *.node[*].maxMessages 8
+config *.node[*].initialTTL 5
+config *.node[0..3].enableMobility true
+config *.node[0..3].mobilityUpdateInterval 1s
+config *.node[0..3].mobilitySpeed 15mps
+config *.node[0..3].areaWidth 600m
+config *.node[0..3].areaHeight 400m
+config *.node[4..11].enableMobility false
+config *.node[*].packetLossRate 0.03
 config network MeshChatNetwork
 config ned-path .;../src
 config sim-time-limit 30s
@@ -682,62 +697,62 @@ attr mutable ""
 par MeshChatNetwork.node[9].gate$o[4].channel per 0
 attr mutable ""
 par MeshChatNetwork.node[0] typename "\"secure_meshchat.src.MeshNode\""
-par MeshChatNetwork.node[0] initialTTL 7
-par MeshChatNetwork.node[0] packetLossRate 0.05
-par MeshChatNetwork.node[0] maxMessages 15
+par MeshChatNetwork.node[0] initialTTL 5
+par MeshChatNetwork.node[0] packetLossRate 0.03
+par MeshChatNetwork.node[0] maxMessages 8
 par MeshChatNetwork.node[0] enableMobility true
-par MeshChatNetwork.node[0] mobilityUpdateInterval 2s
+par MeshChatNetwork.node[0] mobilityUpdateInterval 1s
 attr unit s
-par MeshChatNetwork.node[0] mobilitySpeed 10mps
+par MeshChatNetwork.node[0] mobilitySpeed 15mps
 attr unit mps
-par MeshChatNetwork.node[0] areaWidth 800m
+par MeshChatNetwork.node[0] areaWidth 600m
 attr unit m
-par MeshChatNetwork.node[0] areaHeight 600m
+par MeshChatNetwork.node[0] areaHeight 400m
 attr unit m
 par MeshChatNetwork.node[1] typename "\"secure_meshchat.src.MeshNode\""
-par MeshChatNetwork.node[1] initialTTL 7
-par MeshChatNetwork.node[1] packetLossRate 0.05
-par MeshChatNetwork.node[1] maxMessages 15
+par MeshChatNetwork.node[1] initialTTL 5
+par MeshChatNetwork.node[1] packetLossRate 0.03
+par MeshChatNetwork.node[1] maxMessages 8
 par MeshChatNetwork.node[1] enableMobility true
-par MeshChatNetwork.node[1] mobilityUpdateInterval 2s
+par MeshChatNetwork.node[1] mobilityUpdateInterval 1s
 attr unit s
-par MeshChatNetwork.node[1] mobilitySpeed 10mps
+par MeshChatNetwork.node[1] mobilitySpeed 15mps
 attr unit mps
-par MeshChatNetwork.node[1] areaWidth 800m
+par MeshChatNetwork.node[1] areaWidth 600m
 attr unit m
-par MeshChatNetwork.node[1] areaHeight 600m
+par MeshChatNetwork.node[1] areaHeight 400m
 attr unit m
 par MeshChatNetwork.node[2] typename "\"secure_meshchat.src.MeshNode\""
-par MeshChatNetwork.node[2] initialTTL 7
-par MeshChatNetwork.node[2] packetLossRate 0.05
-par MeshChatNetwork.node[2] maxMessages 15
+par MeshChatNetwork.node[2] initialTTL 5
+par MeshChatNetwork.node[2] packetLossRate 0.03
+par MeshChatNetwork.node[2] maxMessages 8
 par MeshChatNetwork.node[2] enableMobility true
-par MeshChatNetwork.node[2] mobilityUpdateInterval 2s
+par MeshChatNetwork.node[2] mobilityUpdateInterval 1s
 attr unit s
-par MeshChatNetwork.node[2] mobilitySpeed 10mps
+par MeshChatNetwork.node[2] mobilitySpeed 15mps
 attr unit mps
-par MeshChatNetwork.node[2] areaWidth 800m
+par MeshChatNetwork.node[2] areaWidth 600m
 attr unit m
-par MeshChatNetwork.node[2] areaHeight 600m
+par MeshChatNetwork.node[2] areaHeight 400m
 attr unit m
 par MeshChatNetwork.node[3] typename "\"secure_meshchat.src.MeshNode\""
-par MeshChatNetwork.node[3] initialTTL 7
-par MeshChatNetwork.node[3] packetLossRate 0.05
-par MeshChatNetwork.node[3] maxMessages 15
+par MeshChatNetwork.node[3] initialTTL 5
+par MeshChatNetwork.node[3] packetLossRate 0.03
+par MeshChatNetwork.node[3] maxMessages 8
 par MeshChatNetwork.node[3] enableMobility true
-par MeshChatNetwork.node[3] mobilityUpdateInterval 2s
+par MeshChatNetwork.node[3] mobilityUpdateInterval 1s
 attr unit s
-par MeshChatNetwork.node[3] mobilitySpeed 10mps
+par MeshChatNetwork.node[3] mobilitySpeed 15mps
 attr unit mps
-par MeshChatNetwork.node[3] areaWidth 800m
+par MeshChatNetwork.node[3] areaWidth 600m
 attr unit m
-par MeshChatNetwork.node[3] areaHeight 600m
+par MeshChatNetwork.node[3] areaHeight 400m
 attr unit m
 par MeshChatNetwork.node[4] typename "\"secure_meshchat.src.MeshNode\""
-par MeshChatNetwork.node[4] initialTTL 7
-par MeshChatNetwork.node[4] packetLossRate 0.05
-par MeshChatNetwork.node[4] maxMessages 15
-par MeshChatNetwork.node[4] enableMobility true
+par MeshChatNetwork.node[4] initialTTL 5
+par MeshChatNetwork.node[4] packetLossRate 0.03
+par MeshChatNetwork.node[4] maxMessages 8
+par MeshChatNetwork.node[4] enableMobility false
 par MeshChatNetwork.node[4] mobilityUpdateInterval 2s
 attr unit s
 par MeshChatNetwork.node[4] mobilitySpeed 10mps
@@ -747,10 +762,10 @@ attr unit m
 par MeshChatNetwork.node[4] areaHeight 600m
 attr unit m
 par MeshChatNetwork.node[5] typename "\"secure_meshchat.src.MeshNode\""
-par MeshChatNetwork.node[5] initialTTL 7
-par MeshChatNetwork.node[5] packetLossRate 0.05
-par MeshChatNetwork.node[5] maxMessages 15
-par MeshChatNetwork.node[5] enableMobility true
+par MeshChatNetwork.node[5] initialTTL 5
+par MeshChatNetwork.node[5] packetLossRate 0.03
+par MeshChatNetwork.node[5] maxMessages 8
+par MeshChatNetwork.node[5] enableMobility false
 par MeshChatNetwork.node[5] mobilityUpdateInterval 2s
 attr unit s
 par MeshChatNetwork.node[5] mobilitySpeed 10mps
@@ -760,9 +775,9 @@ attr unit m
 par MeshChatNetwork.node[5] areaHeight 600m
 attr unit m
 par MeshChatNetwork.node[6] typename "\"secure_meshchat.src.MeshNode\""
-par MeshChatNetwork.node[6] initialTTL 7
-par MeshChatNetwork.node[6] packetLossRate 0.05
-par MeshChatNetwork.node[6] maxMessages 15
+par MeshChatNetwork.node[6] initialTTL 5
+par MeshChatNetwork.node[6] packetLossRate 0.03
+par MeshChatNetwork.node[6] maxMessages 8
 par MeshChatNetwork.node[6] enableMobility false
 par MeshChatNetwork.node[6] mobilityUpdateInterval 1s
 attr unit s
@@ -773,9 +788,9 @@ attr unit m
 par MeshChatNetwork.node[6] areaHeight 1000m
 attr unit m
 par MeshChatNetwork.node[7] typename "\"secure_meshchat.src.MeshNode\""
-par MeshChatNetwork.node[7] initialTTL 7
-par MeshChatNetwork.node[7] packetLossRate 0.05
-par MeshChatNetwork.node[7] maxMessages 15
+par MeshChatNetwork.node[7] initialTTL 5
+par MeshChatNetwork.node[7] packetLossRate 0.03
+par MeshChatNetwork.node[7] maxMessages 8
 par MeshChatNetwork.node[7] enableMobility false
 par MeshChatNetwork.node[7] mobilityUpdateInterval 1s
 attr unit s
@@ -786,9 +801,9 @@ attr unit m
 par MeshChatNetwork.node[7] areaHeight 1000m
 attr unit m
 par MeshChatNetwork.node[8] typename "\"secure_meshchat.src.MeshNode\""
-par MeshChatNetwork.node[8] initialTTL 7
-par MeshChatNetwork.node[8] packetLossRate 0.05
-par MeshChatNetwork.node[8] maxMessages 15
+par MeshChatNetwork.node[8] initialTTL 5
+par MeshChatNetwork.node[8] packetLossRate 0.03
+par MeshChatNetwork.node[8] maxMessages 8
 par MeshChatNetwork.node[8] enableMobility false
 par MeshChatNetwork.node[8] mobilityUpdateInterval 1s
 attr unit s
@@ -799,9 +814,9 @@ attr unit m
 par MeshChatNetwork.node[8] areaHeight 1000m
 attr unit m
 par MeshChatNetwork.node[9] typename "\"secure_meshchat.src.MeshNode\""
-par MeshChatNetwork.node[9] initialTTL 7
-par MeshChatNetwork.node[9] packetLossRate 0.05
-par MeshChatNetwork.node[9] maxMessages 15
+par MeshChatNetwork.node[9] initialTTL 5
+par MeshChatNetwork.node[9] packetLossRate 0.03
+par MeshChatNetwork.node[9] maxMessages 8
 par MeshChatNetwork.node[9] enableMobility false
 par MeshChatNetwork.node[9] mobilityUpdateInterval 1s
 attr unit s
@@ -812,9 +827,9 @@ attr unit m
 par MeshChatNetwork.node[9] areaHeight 1000m
 attr unit m
 par MeshChatNetwork.node[10] typename "\"secure_meshchat.src.MeshNode\""
-par MeshChatNetwork.node[10] initialTTL 7
-par MeshChatNetwork.node[10] packetLossRate 0.05
-par MeshChatNetwork.node[10] maxMessages 15
+par MeshChatNetwork.node[10] initialTTL 5
+par MeshChatNetwork.node[10] packetLossRate 0.03
+par MeshChatNetwork.node[10] maxMessages 8
 par MeshChatNetwork.node[10] enableMobility false
 par MeshChatNetwork.node[10] mobilityUpdateInterval 1s
 attr unit s
@@ -825,9 +840,9 @@ attr unit m
 par MeshChatNetwork.node[10] areaHeight 1000m
 attr unit m
 par MeshChatNetwork.node[11] typename "\"secure_meshchat.src.MeshNode\""
-par MeshChatNetwork.node[11] initialTTL 7
-par MeshChatNetwork.node[11] packetLossRate 0.05
-par MeshChatNetwork.node[11] maxMessages 15
+par MeshChatNetwork.node[11] initialTTL 5
+par MeshChatNetwork.node[11] packetLossRate 0.03
+par MeshChatNetwork.node[11] maxMessages 8
 par MeshChatNetwork.node[11] enableMobility false
 par MeshChatNetwork.node[11] mobilityUpdateInterval 1s
 attr unit s

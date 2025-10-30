@@ -1,8 +1,8 @@
 version 3
-run Broadcast-0-20251018-02:13:56-24436
+run Broadcast-0-20251030-05:43:39-18400
 attr configname Broadcast
-attr datetime 20251018-02:13:56
-attr datetimef 20251018-021356
+attr datetime 20251030-05:43:39
+attr datetimef 20251030-054339
 attr experiment Broadcast
 attr inifile omnetpp.ini
 attr iterationvars ""
@@ -10,130 +10,838 @@ attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network MeshChatNetwork
-attr processid 24436
+attr processid 18400
 attr repetition 0
 attr replication #0
 attr resultdir results
 attr runnumber 0
 attr seedset 0
-config extends General
-config description "Node 0 broadcasts to all nodes"
+config description "Emergency broadcast test"
+config *.node[0].broadcastInterval 10s
+config *.node[0].enableBroadcast true
+config *.node[2].broadcastInterval 15s
+config *.node[2].enableBroadcast true
 config network MeshChatNetwork
-config sim-time-limit 100s
-config *.numNodes 6
-config **.node[0].app.sendMessageAt 10s
-config **.node[0].app.destinationNode 3
-config **.node[0].app.messageText "\"Hello from Node 0!\""
-config **.node[2].app.sendMessageAt 20s
-config **.node[2].app.destinationNode -1
-config **.node[2].app.messageText "\"Broadcast from Node 2!\""
-config **.node[4].app.sendMessageAt 30s
-config **.node[4].app.destinationNode 1
-config **.node[4].app.messageText "\"Greetings from Node 4!\""
-config **.node[*].numGates 3
+config ned-path .;../src
+config sim-time-limit 30s
+config *.node[*].packetLossRate 0.05
+config *.node[*].maxMessages 15
+config *.node[*].initialTTL 7
+config *.node[*].messageSendInterval exponential(5s)
+config *.node[*].displayStrings true
+config *.node[0..5].enableMobility true
+config *.node[0..5].mobilityUpdateInterval 2s
+config *.node[0..5].mobilitySpeed 10mps
+config *.node[0..5].areaWidth 800m
+config *.node[0..5].areaHeight 600m
+config *.node[6..11].enableMobility false
 
-par MeshChatNetwork.node[0].gate$o[0].channel typename "\"ned.DelayChannel\""
+par MeshChatNetwork.node[0].gate$o[0].channel typename "\"secure_meshchat.simulations.WirelessLink\""
 par MeshChatNetwork.node[0].gate$o[0].channel disabled false
 attr mutable ""
-par MeshChatNetwork.node[0].gate$o[0].channel delay 0.001s
+par MeshChatNetwork.node[0].gate$o[0].channel delay 0.00593932s
 attr mutable ""
 attr unit s
-par MeshChatNetwork.node[1].gate$o[0].channel typename "\"ned.DelayChannel\""
+par MeshChatNetwork.node[0].gate$o[0].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[0].gate$o[0].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[0].gate$o[0].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[1].gate$o[0].channel typename "\"secure_meshchat.simulations.WirelessLink\""
 par MeshChatNetwork.node[1].gate$o[0].channel disabled false
 attr mutable ""
-par MeshChatNetwork.node[1].gate$o[0].channel delay 0.001s
+par MeshChatNetwork.node[1].gate$o[0].channel delay 0.0063356s
 attr mutable ""
 attr unit s
-par MeshChatNetwork.node[0].gate$o[1].channel typename "\"ned.DelayChannel\""
+par MeshChatNetwork.node[1].gate$o[0].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[1].gate$o[0].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[1].gate$o[0].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[0].gate$o[1].channel typename "\"secure_meshchat.simulations.WirelessLink\""
 par MeshChatNetwork.node[0].gate$o[1].channel disabled false
 attr mutable ""
-par MeshChatNetwork.node[0].gate$o[1].channel delay 0.001s
+par MeshChatNetwork.node[0].gate$o[1].channel delay 0.0074367s
 attr mutable ""
 attr unit s
-par MeshChatNetwork.node[2].gate$o[0].channel typename "\"ned.DelayChannel\""
+par MeshChatNetwork.node[0].gate$o[1].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[0].gate$o[1].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[0].gate$o[1].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[2].gate$o[0].channel typename "\"secure_meshchat.simulations.WirelessLink\""
 par MeshChatNetwork.node[2].gate$o[0].channel disabled false
 attr mutable ""
-par MeshChatNetwork.node[2].gate$o[0].channel delay 0.001s
+par MeshChatNetwork.node[2].gate$o[0].channel delay 0.00859839s
 attr mutable ""
 attr unit s
-par MeshChatNetwork.node[1].gate$o[1].channel typename "\"ned.DelayChannel\""
+par MeshChatNetwork.node[2].gate$o[0].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[2].gate$o[0].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[2].gate$o[0].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[0].gate$o[2].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[0].gate$o[2].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[0].gate$o[2].channel delay 0.00642487s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[0].gate$o[2].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[0].gate$o[2].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[0].gate$o[2].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[11].gate$o[0].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[11].gate$o[0].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[11].gate$o[0].channel delay 0.00872151s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[11].gate$o[0].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[11].gate$o[0].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[11].gate$o[0].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[1].gate$o[1].channel typename "\"secure_meshchat.simulations.WirelessLink\""
 par MeshChatNetwork.node[1].gate$o[1].channel disabled false
 attr mutable ""
-par MeshChatNetwork.node[1].gate$o[1].channel delay 0.001s
+par MeshChatNetwork.node[1].gate$o[1].channel delay 0.00590395s
 attr mutable ""
 attr unit s
-par MeshChatNetwork.node[3].gate$o[0].channel typename "\"ned.DelayChannel\""
-par MeshChatNetwork.node[3].gate$o[0].channel disabled false
+par MeshChatNetwork.node[1].gate$o[1].channel datarate 1e+06bps
 attr mutable ""
-par MeshChatNetwork.node[3].gate$o[0].channel delay 0.001s
+attr unit bps
+par MeshChatNetwork.node[1].gate$o[1].channel ber 0
 attr mutable ""
-attr unit s
-par MeshChatNetwork.node[2].gate$o[1].channel typename "\"ned.DelayChannel\""
+par MeshChatNetwork.node[1].gate$o[1].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[2].gate$o[1].channel typename "\"secure_meshchat.simulations.WirelessLink\""
 par MeshChatNetwork.node[2].gate$o[1].channel disabled false
 attr mutable ""
-par MeshChatNetwork.node[2].gate$o[1].channel delay 0.001s
+par MeshChatNetwork.node[2].gate$o[1].channel delay 0.00862527s
 attr mutable ""
 attr unit s
-par MeshChatNetwork.node[3].gate$o[1].channel typename "\"ned.DelayChannel\""
-par MeshChatNetwork.node[3].gate$o[1].channel disabled false
+par MeshChatNetwork.node[2].gate$o[1].channel datarate 1e+06bps
 attr mutable ""
-par MeshChatNetwork.node[3].gate$o[1].channel delay 0.001s
+attr unit bps
+par MeshChatNetwork.node[2].gate$o[1].channel ber 0
 attr mutable ""
-attr unit s
-par MeshChatNetwork.node[2].gate$o[2].channel typename "\"ned.DelayChannel\""
-par MeshChatNetwork.node[2].gate$o[2].channel disabled false
+par MeshChatNetwork.node[2].gate$o[1].channel per 0
 attr mutable ""
-par MeshChatNetwork.node[2].gate$o[2].channel delay 0.001s
-attr mutable ""
-attr unit s
-par MeshChatNetwork.node[4].gate$o[0].channel typename "\"ned.DelayChannel\""
-par MeshChatNetwork.node[4].gate$o[0].channel disabled false
-attr mutable ""
-par MeshChatNetwork.node[4].gate$o[0].channel delay 0.001s
-attr mutable ""
-attr unit s
-par MeshChatNetwork.node[3].gate$o[2].channel typename "\"ned.DelayChannel\""
-par MeshChatNetwork.node[3].gate$o[2].channel disabled false
-attr mutable ""
-par MeshChatNetwork.node[3].gate$o[2].channel delay 0.001s
-attr mutable ""
-attr unit s
-par MeshChatNetwork.node[5].gate$o[0].channel typename "\"ned.DelayChannel\""
-par MeshChatNetwork.node[5].gate$o[0].channel disabled false
-attr mutable ""
-par MeshChatNetwork.node[5].gate$o[0].channel delay 0.001s
-attr mutable ""
-attr unit s
-par MeshChatNetwork.node[4].gate$o[1].channel typename "\"ned.DelayChannel\""
-par MeshChatNetwork.node[4].gate$o[1].channel disabled false
-attr mutable ""
-par MeshChatNetwork.node[4].gate$o[1].channel delay 0.001s
-attr mutable ""
-attr unit s
-par MeshChatNetwork.node[5].gate$o[1].channel typename "\"ned.DelayChannel\""
-par MeshChatNetwork.node[5].gate$o[1].channel disabled false
-attr mutable ""
-par MeshChatNetwork.node[5].gate$o[1].channel delay 0.001s
-attr mutable ""
-attr unit s
-par MeshChatNetwork.node[1].gate$o[2].channel typename "\"ned.DelayChannel\""
+par MeshChatNetwork.node[1].gate$o[2].channel typename "\"secure_meshchat.simulations.WirelessLink\""
 par MeshChatNetwork.node[1].gate$o[2].channel disabled false
 attr mutable ""
-par MeshChatNetwork.node[1].gate$o[2].channel delay 0.001s
+par MeshChatNetwork.node[1].gate$o[2].channel delay 0.00481289s
 attr mutable ""
 attr unit s
-par MeshChatNetwork.node[4].gate$o[2].channel typename "\"ned.DelayChannel\""
+par MeshChatNetwork.node[1].gate$o[2].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[1].gate$o[2].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[1].gate$o[2].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[3].gate$o[0].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[3].gate$o[0].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[3].gate$o[0].channel delay 0.00661207s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[3].gate$o[0].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[3].gate$o[0].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[3].gate$o[0].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[2].gate$o[2].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[2].gate$o[2].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[2].gate$o[2].channel delay 0.00681305s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[2].gate$o[2].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[2].gate$o[2].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[2].gate$o[2].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[3].gate$o[1].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[3].gate$o[1].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[3].gate$o[1].channel delay 0.00445944s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[3].gate$o[1].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[3].gate$o[1].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[3].gate$o[1].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[2].gate$o[3].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[2].gate$o[3].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[2].gate$o[3].channel delay 0.00493828s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[2].gate$o[3].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[2].gate$o[3].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[2].gate$o[3].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[4].gate$o[0].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[4].gate$o[0].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[4].gate$o[0].channel delay 0.00367781s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[4].gate$o[0].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[4].gate$o[0].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[4].gate$o[0].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[3].gate$o[2].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[3].gate$o[2].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[3].gate$o[2].channel delay 0.00902596s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[3].gate$o[2].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[3].gate$o[2].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[3].gate$o[2].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[4].gate$o[1].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[4].gate$o[1].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[4].gate$o[1].channel delay 0.00151042s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[4].gate$o[1].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[4].gate$o[1].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[4].gate$o[1].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[3].gate$o[3].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[3].gate$o[3].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[3].gate$o[3].channel delay 0.00967296s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[3].gate$o[3].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[3].gate$o[3].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[3].gate$o[3].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[5].gate$o[0].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[5].gate$o[0].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[5].gate$o[0].channel delay 0.00345391s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[5].gate$o[0].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[5].gate$o[0].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[5].gate$o[0].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[4].gate$o[2].channel typename "\"secure_meshchat.simulations.WirelessLink\""
 par MeshChatNetwork.node[4].gate$o[2].channel disabled false
 attr mutable ""
-par MeshChatNetwork.node[4].gate$o[2].channel delay 0.001s
+par MeshChatNetwork.node[4].gate$o[2].channel delay 0.00445097s
 attr mutable ""
 attr unit s
+par MeshChatNetwork.node[4].gate$o[2].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[4].gate$o[2].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[4].gate$o[2].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[5].gate$o[1].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[5].gate$o[1].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[5].gate$o[1].channel delay 0.00529899s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[5].gate$o[1].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[5].gate$o[1].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[5].gate$o[1].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[4].gate$o[3].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[4].gate$o[3].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[4].gate$o[3].channel delay 0.00812553s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[4].gate$o[3].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[4].gate$o[3].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[4].gate$o[3].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[6].gate$o[0].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[6].gate$o[0].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[6].gate$o[0].channel delay 0.00830952s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[6].gate$o[0].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[6].gate$o[0].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[6].gate$o[0].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[5].gate$o[2].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[5].gate$o[2].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[5].gate$o[2].channel delay 0.00576005s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[5].gate$o[2].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[5].gate$o[2].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[5].gate$o[2].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[6].gate$o[1].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[6].gate$o[1].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[6].gate$o[1].channel delay 0.00531979s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[6].gate$o[1].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[6].gate$o[1].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[6].gate$o[1].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[5].gate$o[3].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[5].gate$o[3].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[5].gate$o[3].channel delay 0.0061124s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[5].gate$o[3].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[5].gate$o[3].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[5].gate$o[3].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[7].gate$o[0].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[7].gate$o[0].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[7].gate$o[0].channel delay 0.00453506s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[7].gate$o[0].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[7].gate$o[0].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[7].gate$o[0].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[6].gate$o[2].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[6].gate$o[2].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[6].gate$o[2].channel delay 0.00933037s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[6].gate$o[2].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[6].gate$o[2].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[6].gate$o[2].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[7].gate$o[1].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[7].gate$o[1].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[7].gate$o[1].channel delay 0.00852471s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[7].gate$o[1].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[7].gate$o[1].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[7].gate$o[1].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[6].gate$o[3].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[6].gate$o[3].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[6].gate$o[3].channel delay 0.00163932s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[6].gate$o[3].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[6].gate$o[3].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[6].gate$o[3].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[8].gate$o[0].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[8].gate$o[0].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[8].gate$o[0].channel delay 0.00403657s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[8].gate$o[0].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[8].gate$o[0].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[8].gate$o[0].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[7].gate$o[2].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[7].gate$o[2].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[7].gate$o[2].channel delay 0.00178416s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[7].gate$o[2].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[7].gate$o[2].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[7].gate$o[2].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[8].gate$o[1].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[8].gate$o[1].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[8].gate$o[1].channel delay 0.00683355s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[8].gate$o[1].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[8].gate$o[1].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[8].gate$o[1].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[7].gate$o[3].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[7].gate$o[3].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[7].gate$o[3].channel delay 0.00118197s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[7].gate$o[3].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[7].gate$o[3].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[7].gate$o[3].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[9].gate$o[0].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[9].gate$o[0].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[9].gate$o[0].channel delay 0.00431417s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[9].gate$o[0].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[9].gate$o[0].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[9].gate$o[0].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[8].gate$o[2].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[8].gate$o[2].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[8].gate$o[2].channel delay 0.00849358s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[8].gate$o[2].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[8].gate$o[2].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[8].gate$o[2].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[9].gate$o[1].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[9].gate$o[1].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[9].gate$o[1].channel delay 0.0096144s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[9].gate$o[1].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[9].gate$o[1].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[9].gate$o[1].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[8].gate$o[3].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[8].gate$o[3].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[8].gate$o[3].channel delay 0.00800341s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[8].gate$o[3].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[8].gate$o[3].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[8].gate$o[3].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[10].gate$o[0].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[10].gate$o[0].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[10].gate$o[0].channel delay 0.00226316s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[10].gate$o[0].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[10].gate$o[0].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[10].gate$o[0].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[9].gate$o[2].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[9].gate$o[2].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[9].gate$o[2].channel delay 0.00883011s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[9].gate$o[2].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[9].gate$o[2].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[9].gate$o[2].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[10].gate$o[1].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[10].gate$o[1].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[10].gate$o[1].channel delay 0.00883079s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[10].gate$o[1].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[10].gate$o[1].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[10].gate$o[1].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[9].gate$o[3].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[9].gate$o[3].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[9].gate$o[3].channel delay 0.00980757s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[9].gate$o[3].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[9].gate$o[3].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[9].gate$o[3].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[11].gate$o[1].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[11].gate$o[1].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[11].gate$o[1].channel delay 0.00526247s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[11].gate$o[1].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[11].gate$o[1].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[11].gate$o[1].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[10].gate$o[2].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[10].gate$o[2].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[10].gate$o[2].channel delay 0.00819243s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[10].gate$o[2].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[10].gate$o[2].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[10].gate$o[2].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[11].gate$o[2].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[11].gate$o[2].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[11].gate$o[2].channel delay 0.0082082s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[11].gate$o[2].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[11].gate$o[2].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[11].gate$o[2].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[10].gate$o[3].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[10].gate$o[3].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[10].gate$o[3].channel delay 0.00515331s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[10].gate$o[3].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[10].gate$o[3].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[10].gate$o[3].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[0].gate$o[3].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[0].gate$o[3].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[0].gate$o[3].channel delay 0.0056843s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[0].gate$o[3].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[0].gate$o[3].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[0].gate$o[3].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[0].gate$o[4].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[0].gate$o[4].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[0].gate$o[4].channel delay 0.00802476s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[0].gate$o[4].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[0].gate$o[4].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[0].gate$o[4].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[6].gate$o[4].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[6].gate$o[4].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[6].gate$o[4].channel delay 0.00710992s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[6].gate$o[4].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[6].gate$o[4].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[6].gate$o[4].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[3].gate$o[4].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[3].gate$o[4].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[3].gate$o[4].channel delay 0.00206447s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[3].gate$o[4].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[3].gate$o[4].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[3].gate$o[4].channel per 0
+attr mutable ""
+par MeshChatNetwork.node[9].gate$o[4].channel typename "\"secure_meshchat.simulations.WirelessLink\""
+par MeshChatNetwork.node[9].gate$o[4].channel disabled false
+attr mutable ""
+par MeshChatNetwork.node[9].gate$o[4].channel delay 0.00748569s
+attr mutable ""
+attr unit s
+par MeshChatNetwork.node[9].gate$o[4].channel datarate 1e+06bps
+attr mutable ""
+attr unit bps
+par MeshChatNetwork.node[9].gate$o[4].channel ber 0
+attr mutable ""
+par MeshChatNetwork.node[9].gate$o[4].channel per 0
+attr mutable ""
 par MeshChatNetwork.node[0] typename "\"secure_meshchat.src.MeshNode\""
+par MeshChatNetwork.node[0] initialTTL 7
+par MeshChatNetwork.node[0] packetLossRate 0.05
+par MeshChatNetwork.node[0] maxMessages 15
+par MeshChatNetwork.node[0] enableMobility true
+par MeshChatNetwork.node[0] mobilityUpdateInterval 2s
+attr unit s
+par MeshChatNetwork.node[0] mobilitySpeed 10mps
+attr unit mps
+par MeshChatNetwork.node[0] areaWidth 800m
+attr unit m
+par MeshChatNetwork.node[0] areaHeight 600m
+attr unit m
 par MeshChatNetwork.node[1] typename "\"secure_meshchat.src.MeshNode\""
+par MeshChatNetwork.node[1] initialTTL 7
+par MeshChatNetwork.node[1] packetLossRate 0.05
+par MeshChatNetwork.node[1] maxMessages 15
+par MeshChatNetwork.node[1] enableMobility true
+par MeshChatNetwork.node[1] mobilityUpdateInterval 2s
+attr unit s
+par MeshChatNetwork.node[1] mobilitySpeed 10mps
+attr unit mps
+par MeshChatNetwork.node[1] areaWidth 800m
+attr unit m
+par MeshChatNetwork.node[1] areaHeight 600m
+attr unit m
 par MeshChatNetwork.node[2] typename "\"secure_meshchat.src.MeshNode\""
+par MeshChatNetwork.node[2] initialTTL 7
+par MeshChatNetwork.node[2] packetLossRate 0.05
+par MeshChatNetwork.node[2] maxMessages 15
+par MeshChatNetwork.node[2] enableMobility true
+par MeshChatNetwork.node[2] mobilityUpdateInterval 2s
+attr unit s
+par MeshChatNetwork.node[2] mobilitySpeed 10mps
+attr unit mps
+par MeshChatNetwork.node[2] areaWidth 800m
+attr unit m
+par MeshChatNetwork.node[2] areaHeight 600m
+attr unit m
 par MeshChatNetwork.node[3] typename "\"secure_meshchat.src.MeshNode\""
+par MeshChatNetwork.node[3] initialTTL 7
+par MeshChatNetwork.node[3] packetLossRate 0.05
+par MeshChatNetwork.node[3] maxMessages 15
+par MeshChatNetwork.node[3] enableMobility true
+par MeshChatNetwork.node[3] mobilityUpdateInterval 2s
+attr unit s
+par MeshChatNetwork.node[3] mobilitySpeed 10mps
+attr unit mps
+par MeshChatNetwork.node[3] areaWidth 800m
+attr unit m
+par MeshChatNetwork.node[3] areaHeight 600m
+attr unit m
 par MeshChatNetwork.node[4] typename "\"secure_meshchat.src.MeshNode\""
+par MeshChatNetwork.node[4] initialTTL 7
+par MeshChatNetwork.node[4] packetLossRate 0.05
+par MeshChatNetwork.node[4] maxMessages 15
+par MeshChatNetwork.node[4] enableMobility true
+par MeshChatNetwork.node[4] mobilityUpdateInterval 2s
+attr unit s
+par MeshChatNetwork.node[4] mobilitySpeed 10mps
+attr unit mps
+par MeshChatNetwork.node[4] areaWidth 800m
+attr unit m
+par MeshChatNetwork.node[4] areaHeight 600m
+attr unit m
 par MeshChatNetwork.node[5] typename "\"secure_meshchat.src.MeshNode\""
+par MeshChatNetwork.node[5] initialTTL 7
+par MeshChatNetwork.node[5] packetLossRate 0.05
+par MeshChatNetwork.node[5] maxMessages 15
+par MeshChatNetwork.node[5] enableMobility true
+par MeshChatNetwork.node[5] mobilityUpdateInterval 2s
+attr unit s
+par MeshChatNetwork.node[5] mobilitySpeed 10mps
+attr unit mps
+par MeshChatNetwork.node[5] areaWidth 800m
+attr unit m
+par MeshChatNetwork.node[5] areaHeight 600m
+attr unit m
+par MeshChatNetwork.node[6] typename "\"secure_meshchat.src.MeshNode\""
+par MeshChatNetwork.node[6] initialTTL 7
+par MeshChatNetwork.node[6] packetLossRate 0.05
+par MeshChatNetwork.node[6] maxMessages 15
+par MeshChatNetwork.node[6] enableMobility false
+par MeshChatNetwork.node[6] mobilityUpdateInterval 1s
+attr unit s
+par MeshChatNetwork.node[6] mobilitySpeed 5mps
+attr unit mps
+par MeshChatNetwork.node[6] areaWidth 1000m
+attr unit m
+par MeshChatNetwork.node[6] areaHeight 1000m
+attr unit m
+par MeshChatNetwork.node[7] typename "\"secure_meshchat.src.MeshNode\""
+par MeshChatNetwork.node[7] initialTTL 7
+par MeshChatNetwork.node[7] packetLossRate 0.05
+par MeshChatNetwork.node[7] maxMessages 15
+par MeshChatNetwork.node[7] enableMobility false
+par MeshChatNetwork.node[7] mobilityUpdateInterval 1s
+attr unit s
+par MeshChatNetwork.node[7] mobilitySpeed 5mps
+attr unit mps
+par MeshChatNetwork.node[7] areaWidth 1000m
+attr unit m
+par MeshChatNetwork.node[7] areaHeight 1000m
+attr unit m
+par MeshChatNetwork.node[8] typename "\"secure_meshchat.src.MeshNode\""
+par MeshChatNetwork.node[8] initialTTL 7
+par MeshChatNetwork.node[8] packetLossRate 0.05
+par MeshChatNetwork.node[8] maxMessages 15
+par MeshChatNetwork.node[8] enableMobility false
+par MeshChatNetwork.node[8] mobilityUpdateInterval 1s
+attr unit s
+par MeshChatNetwork.node[8] mobilitySpeed 5mps
+attr unit mps
+par MeshChatNetwork.node[8] areaWidth 1000m
+attr unit m
+par MeshChatNetwork.node[8] areaHeight 1000m
+attr unit m
+par MeshChatNetwork.node[9] typename "\"secure_meshchat.src.MeshNode\""
+par MeshChatNetwork.node[9] initialTTL 7
+par MeshChatNetwork.node[9] packetLossRate 0.05
+par MeshChatNetwork.node[9] maxMessages 15
+par MeshChatNetwork.node[9] enableMobility false
+par MeshChatNetwork.node[9] mobilityUpdateInterval 1s
+attr unit s
+par MeshChatNetwork.node[9] mobilitySpeed 5mps
+attr unit mps
+par MeshChatNetwork.node[9] areaWidth 1000m
+attr unit m
+par MeshChatNetwork.node[9] areaHeight 1000m
+attr unit m
+par MeshChatNetwork.node[10] typename "\"secure_meshchat.src.MeshNode\""
+par MeshChatNetwork.node[10] initialTTL 7
+par MeshChatNetwork.node[10] packetLossRate 0.05
+par MeshChatNetwork.node[10] maxMessages 15
+par MeshChatNetwork.node[10] enableMobility false
+par MeshChatNetwork.node[10] mobilityUpdateInterval 1s
+attr unit s
+par MeshChatNetwork.node[10] mobilitySpeed 5mps
+attr unit mps
+par MeshChatNetwork.node[10] areaWidth 1000m
+attr unit m
+par MeshChatNetwork.node[10] areaHeight 1000m
+attr unit m
+par MeshChatNetwork.node[11] typename "\"secure_meshchat.src.MeshNode\""
+par MeshChatNetwork.node[11] initialTTL 7
+par MeshChatNetwork.node[11] packetLossRate 0.05
+par MeshChatNetwork.node[11] maxMessages 15
+par MeshChatNetwork.node[11] enableMobility false
+par MeshChatNetwork.node[11] mobilityUpdateInterval 1s
+attr unit s
+par MeshChatNetwork.node[11] mobilitySpeed 5mps
+attr unit mps
+par MeshChatNetwork.node[11] areaWidth 1000m
+attr unit m
+par MeshChatNetwork.node[11] areaHeight 1000m
+attr unit m
 par MeshChatNetwork typename "\"secure_meshchat.simulations.MeshChatNetwork\""
-par MeshChatNetwork numNodes 6
+par MeshChatNetwork numNodes 12
 

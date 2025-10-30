@@ -2,7 +2,7 @@
 # OMNeT++/OMNEST Makefile for secure-meshchat
 #
 # This file was generated with the command:
-#  opp_makemake -f --deep -o secure-meshchat -O out -I. -KLIBS=-lssl -lcrypto
+#  opp_makemake -f --deep -o secure-meshchat -O out -I. -LC:/Users/Lenovo/Downloads/omnetpp-6.2.0/tools/win32.x86_64/clang64/lib -lssl -lcrypto
 #
 
 # Name of target to be created (-o option)
@@ -23,7 +23,7 @@ INCLUDE_PATH = -I.
 EXTRA_OBJS =
 
 # Additional libraries (-L, -l options)
-LIBS =
+LIBS = $(LDFLAG_LIBPATH)C:/Users/Lenovo/Downloads/omnetpp-6.2.0/tools/win32.x86_64/clang64/lib  -lssl -lcrypto
 
 # Output directory
 PROJECT_OUTPUT_DIR = out
@@ -46,9 +46,6 @@ MSGFILES = \
 # SM files
 SMFILES =
 
-# Other makefile variables (-K)
-LIBS=-lssl -lcrypto
-
 #------------------------------------------------------------------------------
 
 # Pull in OMNeT++ configuration (Makefile.inc)
@@ -67,6 +64,9 @@ include $(CONFIGFILE)
 
 # Simulation kernel and user interface libraries
 OMNETPP_LIBS = $(OPPMAIN_LIB) $(USERIF_LIBS) $(KERNEL_LIBS) $(SYS_LIBS)
+ifneq ($(PLATFORM),win32)
+LIBS += -Wl,-rpath,$(abspath C:/Users/Lenovo/Downloads/omnetpp-6.2.0/tools/win32.x86_64/clang64/lib)
+endif
 
 COPTS = $(CFLAGS) $(IMPORT_DEFINES)  $(INCLUDE_PATH) -I$(OMNETPP_INCL_DIR)
 MSGCOPTS = $(INCLUDE_PATH)

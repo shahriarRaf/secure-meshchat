@@ -1,0 +1,131 @@
+file 6197 1761794908                                            
+version 3
+run General-0-20251030-09:24:51-1496
+attr configname General
+attr datetime 20251030-09:24:51
+attr datetimef 20251030-092451
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network MeshChatNetwork
+attr processid 1496
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config network MeshChatNetwork
+config ned-path .;../src
+config sim-time-limit 30s
+config *.node[*].packetLossRate 0.05
+config *.node[*].maxMessages 15
+config *.node[*].initialTTL 7
+config *.node[*].messageSendInterval exponential(5s)
+config *.node[*].displayStrings true
+config *.node[0..5].enableMobility true
+config *.node[0..5].mobilityUpdateInterval 2s
+config *.node[0..5].mobilitySpeed 10mps
+config *.node[0..5].areaWidth 800m
+config *.node[0..5].areaHeight 600m
+config *.node[6..11].enableMobility false
+
+vector 0 MeshChatNetwork.node[0] messagesSent ETV
+vector 1 MeshChatNetwork.node[0] messagesDelivered ETV
+vector 2 MeshChatNetwork.node[0] messagesDropped ETV
+vector 3 MeshChatNetwork.node[0] deliveryRatio ETV
+vector 4 MeshChatNetwork.node[1] messagesSent ETV
+vector 5 MeshChatNetwork.node[1] messagesDelivered ETV
+vector 6 MeshChatNetwork.node[1] messagesDropped ETV
+vector 7 MeshChatNetwork.node[1] deliveryRatio ETV
+vector 8 MeshChatNetwork.node[2] messagesSent ETV
+vector 9 MeshChatNetwork.node[2] messagesDelivered ETV
+vector 10 MeshChatNetwork.node[2] messagesDropped ETV
+vector 11 MeshChatNetwork.node[2] deliveryRatio ETV
+vector 12 MeshChatNetwork.node[3] messagesSent ETV
+vector 13 MeshChatNetwork.node[3] messagesDelivered ETV
+vector 14 MeshChatNetwork.node[3] messagesDropped ETV
+vector 15 MeshChatNetwork.node[3] deliveryRatio ETV
+vector 16 MeshChatNetwork.node[4] messagesSent ETV
+vector 17 MeshChatNetwork.node[4] messagesDelivered ETV
+vector 18 MeshChatNetwork.node[4] messagesDropped ETV
+vector 19 MeshChatNetwork.node[4] deliveryRatio ETV
+vector 20 MeshChatNetwork.node[5] messagesSent ETV
+vector 21 MeshChatNetwork.node[5] messagesDelivered ETV
+vector 22 MeshChatNetwork.node[5] messagesDropped ETV
+vector 23 MeshChatNetwork.node[5] deliveryRatio ETV
+vector 24 MeshChatNetwork.node[6] messagesSent ETV
+vector 25 MeshChatNetwork.node[6] messagesDelivered ETV
+vector 26 MeshChatNetwork.node[6] messagesDropped ETV
+vector 27 MeshChatNetwork.node[6] deliveryRatio ETV
+vector 28 MeshChatNetwork.node[7] messagesSent ETV
+vector 29 MeshChatNetwork.node[7] messagesDelivered ETV
+vector 30 MeshChatNetwork.node[7] messagesDropped ETV
+vector 31 MeshChatNetwork.node[7] deliveryRatio ETV
+vector 32 MeshChatNetwork.node[8] messagesSent ETV
+vector 33 MeshChatNetwork.node[8] messagesDelivered ETV
+vector 34 MeshChatNetwork.node[8] messagesDropped ETV
+vector 35 MeshChatNetwork.node[8] deliveryRatio ETV
+vector 36 MeshChatNetwork.node[9] messagesSent ETV
+vector 37 MeshChatNetwork.node[9] messagesDelivered ETV
+vector 38 MeshChatNetwork.node[9] messagesDropped ETV
+vector 39 MeshChatNetwork.node[9] deliveryRatio ETV
+vector 40 MeshChatNetwork.node[10] messagesSent ETV
+vector 41 MeshChatNetwork.node[10] messagesDelivered ETV
+vector 42 MeshChatNetwork.node[10] messagesDropped ETV
+vector 43 MeshChatNetwork.node[10] deliveryRatio ETV
+vector 44 MeshChatNetwork.node[11] messagesSent ETV
+vector 45 MeshChatNetwork.node[11] messagesDelivered ETV
+vector 46 MeshChatNetwork.node[11] messagesDropped ETV
+vector 47 MeshChatNetwork.node[11] deliveryRatio ETV
+0	3559 55 52 4347 0.5 2 4 5 151 406 55428
+1	3614 50 52 4347 0.5 2 4 0 0 0 0
+2	3664 50 52 4347 0.5 2 4 0 9 24 198
+3	3714 50 52 4347 0.5 2 4 0 0 0 0
+4	3764 55 54 4348 0.5 2 4 3 111 307 31375
+5	3819 50 54 4348 0.5 2 4 0 0 0 0
+6	3869 50 54 4348 0.5 2 4 0 9 23 187
+7	3919 50 54 4348 0.5 2 4 0 0 0 0
+8	3969 56 56 4349 0.5 2 4 4 167 462 71170
+9	4025 50 56 4349 0.5 2 4 0 0 0 0
+10	4075 54 56 4349 0.5 2 4 0 9 26 226
+11	4129 54 56 4349 0.5 2 4 0 0 0 0
+12	4183 60 58 4350 0.5 2 4 5 188 518 89482
+13	4243 54 58 4350 0.5 2 4 0 0 0 0
+14	4297 54 58 4350 0.5 2 4 0 7 17 107
+15	4351 54 58 4350 0.5 2 4 0 0 0 0
+16	4405 60 60 4351 0.5 2 4 4 175 490 79762
+17	4465 54 60 4351 0.5 2 4 0 0 0 0
+18	4519 56 60 4351 0.5 2 4 0 13 34 402
+19	4575 54 60 4351 0.5 2 4 0 0 0 0
+20	4629 60 62 4352 0.5 2 4 4 164 454 68692
+21	4689 54 62 4352 0.5 2 4 0 0 0 0
+22	4743 57 62 4352 0.5 2 4 0 12 34 388
+23	4800 54 62 4352 0.5 2 4 0 0 0 0
+24	4854 60 64 4353 0.5 2 4 5 202 559 104133
+25	4914 54 64 4353 0.5 2 4 0 0 0 0
+26	4968 57 64 4353 0.5 2 4 0 13 36 438
+27	5025 54 64 4353 0.5 2 4 0 0 0 0
+28	5079 60 66 4354 0.5 2 4 4 186 518 89372
+29	5139 54 66 4354 0.5 2 4 0 0 0 0
+30	5193 54 66 4354 0.5 2 4 0 2 6 12
+31	5247 54 66 4354 0.5 2 4 0 0 0 0
+32	5301 60 68 4355 0.5 2 4 4 183 510 86594
+33	5361 54 68 4355 0.5 2 4 0 0 0 0
+34	5415 54 68 4355 0.5 2 4 0 5 14 66
+35	5469 54 68 4355 0.5 2 4 0 0 0 0
+36	5523 60 70 4356 0.5 2 4 5 218 604 121642
+37	5583 54 70 4356 0.5 2 4 0 0 0 0
+38	5637 57 70 4356 0.5 2 4 0 12 36 432
+39	5694 54 70 4356 0.5 2 4 0 0 0 0
+40	5748 60 72 4357 0.5 2 4 4 175 487 78955
+41	5808 54 72 4357 0.5 2 4 0 0 0 0
+42	5862 57 72 4357 0.5 2 4 0 13 37 459
+43	5919 54 72 4357 0.5 2 4 0 0 0 0
+44	5973 60 74 4358 0.5 2 4 3 139 389 50315
+45	6033 54 74 4358 0.5 2 4 0 0 0 0
+46	6087 54 74 4358 0.5 2 4 0 5 13 59
+47	6141 54 74 4358 0.5 2 4 0 0 0 0
+

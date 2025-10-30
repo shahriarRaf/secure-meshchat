@@ -1,0 +1,144 @@
+file 42031 1761793948                                           
+version 3
+run SuperFast-0-20251030-09:06:04-4920
+attr configname SuperFast
+attr datetime 20251030-09:06:04
+attr datetimef 20251030-090604
+attr experiment SuperFast
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network MeshChatNetwork
+attr processid 4920
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config description "ULTRA-FAST 30-second demo"
+config sim-time-limit 30s
+config *.numNodes 12
+config *.node[*].messageSendInterval exponential(1s)
+config *.node[*].maxMessages 5
+config *.node[*].initialTTL 4
+config *.node[0..2].enableMobility true
+config *.node[0..2].mobilityUpdateInterval 0.5s
+config *.node[0..2].mobilitySpeed 20mps
+config *.node[0..2].areaWidth 400m
+config *.node[0..2].areaHeight 300m
+config *.node[3..11].enableMobility false
+config *.node[*].packetLossRate 0.02
+config network MeshChatNetwork
+config ned-path .;../src
+config sim-time-limit 30s
+config *.node[*].packetLossRate 0.05
+config *.node[*].maxMessages 15
+config *.node[*].initialTTL 7
+config *.node[*].messageSendInterval exponential(5s)
+config *.node[*].displayStrings true
+config *.node[0..5].enableMobility true
+config *.node[0..5].mobilityUpdateInterval 2s
+config *.node[0..5].mobilitySpeed 10mps
+config *.node[0..5].areaWidth 800m
+config *.node[0..5].areaHeight 600m
+config *.node[6..11].enableMobility false
+
+vector 0 MeshChatNetwork.node[0] messagesSent ETV
+vector 1 MeshChatNetwork.node[0] messagesDelivered ETV
+vector 2 MeshChatNetwork.node[0] messagesDropped ETV
+vector 3 MeshChatNetwork.node[0] deliveryRatio ETV
+vector 4 MeshChatNetwork.node[1] messagesSent ETV
+vector 5 MeshChatNetwork.node[1] messagesDelivered ETV
+vector 6 MeshChatNetwork.node[1] messagesDropped ETV
+vector 7 MeshChatNetwork.node[1] deliveryRatio ETV
+vector 8 MeshChatNetwork.node[2] messagesSent ETV
+vector 9 MeshChatNetwork.node[2] messagesDelivered ETV
+vector 10 MeshChatNetwork.node[2] messagesDropped ETV
+vector 11 MeshChatNetwork.node[2] deliveryRatio ETV
+vector 12 MeshChatNetwork.node[3] messagesSent ETV
+vector 13 MeshChatNetwork.node[3] messagesDelivered ETV
+vector 14 MeshChatNetwork.node[3] messagesDropped ETV
+vector 15 MeshChatNetwork.node[3] deliveryRatio ETV
+vector 16 MeshChatNetwork.node[4] messagesSent ETV
+vector 17 MeshChatNetwork.node[4] messagesDelivered ETV
+vector 18 MeshChatNetwork.node[4] messagesDropped ETV
+vector 19 MeshChatNetwork.node[4] deliveryRatio ETV
+vector 20 MeshChatNetwork.node[5] messagesSent ETV
+vector 21 MeshChatNetwork.node[5] messagesDelivered ETV
+vector 22 MeshChatNetwork.node[5] messagesDropped ETV
+vector 23 MeshChatNetwork.node[5] deliveryRatio ETV
+vector 24 MeshChatNetwork.node[6] messagesSent ETV
+vector 25 MeshChatNetwork.node[6] messagesDelivered ETV
+vector 26 MeshChatNetwork.node[6] messagesDropped ETV
+vector 27 MeshChatNetwork.node[6] deliveryRatio ETV
+vector 28 MeshChatNetwork.node[7] messagesSent ETV
+vector 29 MeshChatNetwork.node[7] messagesDelivered ETV
+vector 30 MeshChatNetwork.node[7] messagesDropped ETV
+vector 31 MeshChatNetwork.node[7] deliveryRatio ETV
+vector 32 MeshChatNetwork.node[8] messagesSent ETV
+vector 33 MeshChatNetwork.node[8] messagesDelivered ETV
+vector 34 MeshChatNetwork.node[8] messagesDropped ETV
+vector 35 MeshChatNetwork.node[8] deliveryRatio ETV
+vector 36 MeshChatNetwork.node[9] messagesSent ETV
+vector 37 MeshChatNetwork.node[9] messagesDelivered ETV
+vector 38 MeshChatNetwork.node[9] messagesDropped ETV
+vector 39 MeshChatNetwork.node[9] deliveryRatio ETV
+vector 40 MeshChatNetwork.node[10] messagesSent ETV
+vector 41 MeshChatNetwork.node[10] messagesDelivered ETV
+vector 42 MeshChatNetwork.node[10] messagesDropped ETV
+vector 43 MeshChatNetwork.node[10] deliveryRatio ETV
+vector 44 MeshChatNetwork.node[11] messagesSent ETV
+vector 45 MeshChatNetwork.node[11] messagesDelivered ETV
+vector 46 MeshChatNetwork.node[11] messagesDropped ETV
+vector 47 MeshChatNetwork.node[11] deliveryRatio ETV
+0	4064 936 55 5451 0.5 30 60 5 189 10943 2044117
+1	5000 819 55 5451 0.5 30 60 0 0 0 0
+2	5819 819 55 5451 0.5 30 60 0 6 347 2057
+3	6638 819 55 5451 0.5 30 60 0 0 0 0
+4	7457 934 57 5452 0.5 30 60 3 119 6892 810626
+5	8391 819 57 5452 0.5 30 60 0 0 0 0
+6	9210 819 57 5452 0.5 30 60 0 1 59 59
+7	10029 819 57 5452 0.5 30 60 0 0 0 0
+8	10848 936 59 5453 0.5 30 60 4 163 9446 1521978
+9	11784 819 59 5453 0.5 30 60 0 0 0 0
+10	12603 879 59 5453 0.5 30 60 0 1 58 58
+11	13482 879 59 5453 0.5 30 60 0 0 0 0
+12	14361 141 61 4754 0.5 4.5 9 5 204 1444 268226
+13	14502 125 61 4754 0.5 4.5 9 0 0 0 0
+14	14627 125 61 4754 0.5 4.5 9 0 6 41 221
+15	14752 125 61 4754 0.5 4.5 9 0 0 0 0
+16	14877 996 63 5454 0.5 30 60 4 176 10212 1777264
+17	15873 879 63 5454 0.5 30 60 0 0 0 0
+18	16752 879 63 5454 0.5 30 60 0 4 236 944
+19	17631 879 63 5454 0.5 30 60 0 0 0 0
+20	18510 997 65 5455 0.5 30 60 4 182 10583 1905897
+21	19507 879 65 5455 0.5 30 60 0 0 0 0
+22	20386 879 65 5455 0.5 30 60 0 2 117 233
+23	21265 879 65 5455 0.5 30 60 0 0 0 0
+24	22144 997 67 5456 0.5 30 60 5 219 12710 2752612
+25	23141 879 67 5456 0.5 30 60 0 0 0 0
+26	24020 879 67 5456 0.5 30 60 0 6 350 2082
+27	24899 879 67 5456 0.5 30 60 0 0 0 0
+28	25778 471 69 5044 0.5 14.5 29 4 192 5214 978882
+29	26249 415 69 5044 0.5 14.5 29 0 0 0 0
+30	26664 415 69 5044 0.5 14.5 29 0 8 214 1666
+31	27079 415 69 5044 0.5 14.5 29 0 0 0 0
+32	27494 997 71 5457 0.5 30 60 4 190 11039 2074857
+33	28491 879 71 5457 0.5 30 60 0 0 0 0
+34	29370 879 71 5457 0.5 30 60 0 2 117 233
+35	30249 879 71 5457 0.5 30 60 0 0 0 0
+36	31128 997 73 5458 0.5 30 60 5 210 12223 2540779
+37	32125 879 73 5458 0.5 30 60 0 0 0 0
+38	33004 879 73 5458 0.5 30 60 0 8 468 3718
+39	33883 879 73 5458 0.5 30 60 0 0 0 0
+40	34762 997 75 5459 0.5 30 60 4 190 11042 2075650
+41	35759 879 75 5459 0.5 30 60 0 0 0 0
+42	36638 879 75 5459 0.5 30 60 0 2 114 226
+43	37517 879 75 5459 0.5 30 60 0 0 0 0
+44	38396 996 77 5460 0.5 30 60 3 136 7899 1062601
+45	39392 879 77 5460 0.5 30 60 0 0 0 0
+46	40271 879 77 5460 0.5 30 60 0 2 114 226
+47	41150 879 77 5460 0.5 30 60 0 0 0 0
+

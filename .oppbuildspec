@@ -2,4 +2,9 @@
 <buildspec version="4.0">
     <!-- FIX: build only from project root; do NOT generate a Makefile in src -->
     <dir makemake-options="-f --deep -o secure-meshchat -O out -I. -KLIBS=-lssl -lcrypto" path="." type="makemake"/>
+    <environment>
+        <!-- Link against OpenSSL (adjust path if your OMNeT++ toolchain is installed elsewhere) -->
+        <set name="LDFLAGS" value="-L&amp;quot;C:/Users/Lenovo/Downloads/omnetpp-6.2.0/tools/win32.x86_64/clang64/lib&amp;quot;"/>
+        <set name="LIBS" value=" -lssl -lcrypto"/>
+    </environment>
 </buildspec>

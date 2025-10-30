@@ -1,0 +1,274 @@
+version 3
+run General-0-20251030-09:24:51-1496
+attr configname General
+attr datetime 20251030-09:24:51
+attr datetimef 20251030-092451
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network MeshChatNetwork
+attr processid 1496
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config network MeshChatNetwork
+config ned-path .;../src
+config sim-time-limit 30s
+config *.node[*].packetLossRate 0.05
+config *.node[*].maxMessages 15
+config *.node[*].initialTTL 7
+config *.node[*].messageSendInterval exponential(5s)
+config *.node[*].displayStrings true
+config *.node[0..5].enableMobility true
+config *.node[0..5].mobilityUpdateInterval 2s
+config *.node[0..5].mobilitySpeed 10mps
+config *.node[0..5].areaWidth 800m
+config *.node[0..5].areaHeight 600m
+config *.node[6..11].enableMobility false
+
+vector 0 MeshChatNetwork.node[0] messagesSent ETV
+vector 1 MeshChatNetwork.node[0] messagesDelivered ETV
+vector 2 MeshChatNetwork.node[0] messagesDropped ETV
+vector 3 MeshChatNetwork.node[0] deliveryRatio ETV
+vector 4 MeshChatNetwork.node[1] messagesSent ETV
+vector 5 MeshChatNetwork.node[1] messagesDelivered ETV
+vector 6 MeshChatNetwork.node[1] messagesDropped ETV
+vector 7 MeshChatNetwork.node[1] deliveryRatio ETV
+vector 8 MeshChatNetwork.node[2] messagesSent ETV
+vector 9 MeshChatNetwork.node[2] messagesDelivered ETV
+vector 10 MeshChatNetwork.node[2] messagesDropped ETV
+vector 11 MeshChatNetwork.node[2] deliveryRatio ETV
+vector 12 MeshChatNetwork.node[3] messagesSent ETV
+vector 13 MeshChatNetwork.node[3] messagesDelivered ETV
+vector 14 MeshChatNetwork.node[3] messagesDropped ETV
+vector 15 MeshChatNetwork.node[3] deliveryRatio ETV
+vector 16 MeshChatNetwork.node[4] messagesSent ETV
+vector 17 MeshChatNetwork.node[4] messagesDelivered ETV
+vector 18 MeshChatNetwork.node[4] messagesDropped ETV
+vector 19 MeshChatNetwork.node[4] deliveryRatio ETV
+vector 20 MeshChatNetwork.node[5] messagesSent ETV
+vector 21 MeshChatNetwork.node[5] messagesDelivered ETV
+vector 22 MeshChatNetwork.node[5] messagesDropped ETV
+vector 23 MeshChatNetwork.node[5] deliveryRatio ETV
+vector 24 MeshChatNetwork.node[6] messagesSent ETV
+vector 25 MeshChatNetwork.node[6] messagesDelivered ETV
+vector 26 MeshChatNetwork.node[6] messagesDropped ETV
+vector 27 MeshChatNetwork.node[6] deliveryRatio ETV
+vector 28 MeshChatNetwork.node[7] messagesSent ETV
+vector 29 MeshChatNetwork.node[7] messagesDelivered ETV
+vector 30 MeshChatNetwork.node[7] messagesDropped ETV
+vector 31 MeshChatNetwork.node[7] deliveryRatio ETV
+vector 32 MeshChatNetwork.node[8] messagesSent ETV
+vector 33 MeshChatNetwork.node[8] messagesDelivered ETV
+vector 34 MeshChatNetwork.node[8] messagesDropped ETV
+vector 35 MeshChatNetwork.node[8] deliveryRatio ETV
+vector 36 MeshChatNetwork.node[9] messagesSent ETV
+vector 37 MeshChatNetwork.node[9] messagesDelivered ETV
+vector 38 MeshChatNetwork.node[9] messagesDropped ETV
+vector 39 MeshChatNetwork.node[9] deliveryRatio ETV
+vector 40 MeshChatNetwork.node[10] messagesSent ETV
+vector 41 MeshChatNetwork.node[10] messagesDelivered ETV
+vector 42 MeshChatNetwork.node[10] messagesDropped ETV
+vector 43 MeshChatNetwork.node[10] deliveryRatio ETV
+vector 44 MeshChatNetwork.node[11] messagesSent ETV
+vector 45 MeshChatNetwork.node[11] messagesDelivered ETV
+vector 46 MeshChatNetwork.node[11] messagesDropped ETV
+vector 47 MeshChatNetwork.node[11] deliveryRatio ETV
+0	52	0.5	5
+0	3159	1	99
+0	4317	1.5	151
+0	4347	2	151
+1	52	0.5	0
+1	3159	1	0
+1	4317	1.5	0
+1	4347	2	0
+2	52	0.5	0
+2	3159	1	6
+2	4317	1.5	9
+2	4347	2	9
+3	52	0.5	0
+3	3159	1	0
+3	4317	1.5	0
+3	4347	2	0
+4	54	0.5	3
+4	3160	1	82
+4	4318	1.5	111
+4	4348	2	111
+5	54	0.5	0
+5	3160	1	0
+5	4318	1.5	0
+5	4348	2	0
+6	54	0.5	0
+6	3160	1	5
+6	4318	1.5	9
+6	4348	2	9
+7	54	0.5	0
+7	3160	1	0
+7	4318	1.5	0
+7	4348	2	0
+8	56	0.5	4
+8	3161	1	124
+8	4319	1.5	167
+8	4349	2	167
+9	56	0.5	0
+9	3161	1	0
+9	4319	1.5	0
+9	4349	2	0
+10	56	0.5	0
+10	3161	1	8
+10	4319	1.5	9
+10	4349	2	9
+11	56	0.5	0
+11	3161	1	0
+11	4319	1.5	0
+11	4349	2	0
+12	58	0.5	5
+12	3162	1	137
+12	4320	1.5	188
+12	4350	2	188
+13	58	0.5	0
+13	3162	1	0
+13	4320	1.5	0
+13	4350	2	0
+14	58	0.5	0
+14	3162	1	3
+14	4320	1.5	7
+14	4350	2	7
+15	58	0.5	0
+15	3162	1	0
+15	4320	1.5	0
+15	4350	2	0
+16	60	0.5	4
+16	3163	1	136
+16	4321	1.5	175
+16	4351	2	175
+17	60	0.5	0
+17	3163	1	0
+17	4321	1.5	0
+17	4351	2	0
+18	60	0.5	0
+18	3163	1	8
+18	4321	1.5	13
+18	4351	2	13
+19	60	0.5	0
+19	3163	1	0
+19	4321	1.5	0
+19	4351	2	0
+20	62	0.5	4
+20	3164	1	122
+20	4322	1.5	164
+20	4352	2	164
+21	62	0.5	0
+21	3164	1	0
+21	4322	1.5	0
+21	4352	2	0
+22	62	0.5	0
+22	3164	1	10
+22	4322	1.5	12
+22	4352	2	12
+23	62	0.5	0
+23	3164	1	0
+23	4322	1.5	0
+23	4352	2	0
+24	64	0.5	5
+24	3165	1	150
+24	4323	1.5	202
+24	4353	2	202
+25	64	0.5	0
+25	3165	1	0
+25	4323	1.5	0
+25	4353	2	0
+26	64	0.5	0
+26	3165	1	10
+26	4323	1.5	13
+26	4353	2	13
+27	64	0.5	0
+27	3165	1	0
+27	4323	1.5	0
+27	4353	2	0
+28	66	0.5	4
+28	3166	1	142
+28	4324	1.5	186
+28	4354	2	186
+29	66	0.5	0
+29	3166	1	0
+29	4324	1.5	0
+29	4354	2	0
+30	66	0.5	0
+30	3166	1	2
+30	4324	1.5	2
+30	4354	2	2
+31	66	0.5	0
+31	3166	1	0
+31	4324	1.5	0
+31	4354	2	0
+32	68	0.5	4
+32	3167	1	140
+32	4325	1.5	183
+32	4355	2	183
+33	68	0.5	0
+33	3167	1	0
+33	4325	1.5	0
+33	4355	2	0
+34	68	0.5	0
+34	3167	1	4
+34	4325	1.5	5
+34	4355	2	5
+35	68	0.5	0
+35	3167	1	0
+35	4325	1.5	0
+35	4355	2	0
+36	70	0.5	5
+36	3168	1	163
+36	4326	1.5	218
+36	4356	2	218
+37	70	0.5	0
+37	3168	1	0
+37	4326	1.5	0
+37	4356	2	0
+38	70	0.5	0
+38	3168	1	12
+38	4326	1.5	12
+38	4356	2	12
+39	70	0.5	0
+39	3168	1	0
+39	4326	1.5	0
+39	4356	2	0
+40	72	0.5	4
+40	3169	1	133
+40	4327	1.5	175
+40	4357	2	175
+41	72	0.5	0
+41	3169	1	0
+41	4327	1.5	0
+41	4357	2	0
+42	72	0.5	0
+42	3169	1	11
+42	4327	1.5	13
+42	4357	2	13
+43	72	0.5	0
+43	3169	1	0
+43	4327	1.5	0
+43	4357	2	0
+44	74	0.5	3
+44	3170	1	108
+44	4328	1.5	139
+44	4358	2	139
+45	74	0.5	0
+45	3170	1	0
+45	4328	1.5	0
+45	4358	2	0
+46	74	0.5	0
+46	3170	1	3
+46	4328	1.5	5
+46	4358	2	5
+47	74	0.5	0
+47	3170	1	0
+47	4328	1.5	0
+47	4358	2	0
+

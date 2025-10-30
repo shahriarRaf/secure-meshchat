@@ -1,21 +1,22 @@
 version 3
-run General-0-20251030-09:24:51-1496
-attr configname General
-attr datetime 20251030-09:24:51
-attr datetimef 20251030-092451
-attr experiment General
+run Scalability-0-20251030-05:46:14-18400
+attr configname Scalability
+attr datetime 20251030-05:46:14
+attr datetimef 20251030-054614
+attr experiment Scalability
 attr inifile omnetpp.ini
 attr iterationvars ""
 attr iterationvarsd ""
 attr iterationvarsf ""
 attr measurement ""
 attr network MeshChatNetwork
-attr processid 1496
+attr processid 18400
 attr repetition 0
 attr replication #0
 attr resultdir results
 attr runnumber 0
 attr seedset 0
+config description "12 nodes test"
 config network MeshChatNetwork
 config ned-path .;../src
 config sim-time-limit 30s
