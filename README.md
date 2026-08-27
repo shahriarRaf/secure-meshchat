@@ -1,6 +1,3 @@
-<img width="616" height="614" alt="omnet jpg" src="https://github.com/user-attachments/assets/36843944-f29b-4221-8cbd-c6466e9c34f3" />
-<img width="1091" height="693" alt="omneet jpg" src="https://github.com/user-attachments/assets/5578fb70-6ed8-4047-80bd-a2683954133c" />
-<img width="616" height="614" alt="omnet jpg" src="https://github.com/user-attachments/assets/647c107c-1e34-47f0-b80d-d6315a6573b1" />
 # 🔐 Secure MeshChat
 
 **Encrypted ad hoc mesh chat and emergency alert simulation for disaster scenarios (OMNeT++).**
@@ -194,3 +191,7 @@ This repository appears intended for educational/research experimentation on sec
 MIT License (or your chosen license).
 
 If you plan to share or publish this project, update this section with the exact license text/reference used in the repository.
+
+
+<img width="1091" height="693" alt="omneet jpg" src="https://github.com/user-attachments/assets/5578fb70-6ed8-4047-80bd-a2683954133c" />
+<img width="616" height="614" alt="omnet jpg" src="https://github.com/user-attachments/assets/647c107c-1e34-47f0-b80d-d6315a6573b1" />
